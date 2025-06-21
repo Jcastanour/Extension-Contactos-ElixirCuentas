@@ -1,31 +1,20 @@
 {
-    "manifest_version": 2,
-    "name": "Copiar número de WhatsApp",
-    "version": "1.0",
-    "description": "Una extensión que copia automáticamente el número de teléfono de WhatsApp Web.",
-    "permissions": [
-        "activeTab",
-        "clipboardRead",
-        "clipboardWrite"
-    ],
-    "browser_action": {
-        "default_icon": "logo.png",
-        "default_popup": "popup.html"
-    },
-    "icons": {
-        "16": "logo.png",
-        "48": "logo.png",
-        "128": "logo.png"
-    },
-    "background": {
-        "scripts": ["background.js"],
-        "persistent": false
-    },
-    "content_scripts": [
-        {
-            "matches": ["*://web.whatsapp.com/*"],
-            "js": ["content.js", "copyname.js", "copyNumber.js"]
-        }
-    ]
-  }
-  
+  "manifest_version": 3,
+  "name": "Copiar número de WhatsApp",
+  "version": "1.0",
+  "description": "Una extensión que copia automáticamente el número de teléfono de WhatsApp Web.",
+  "permissions": ["activeTab", "scripting", "clipboardRead", "clipboardWrite"],
+  "action": {
+    "default_icon": "logo.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["*://web.whatsapp.com/*"]
+}

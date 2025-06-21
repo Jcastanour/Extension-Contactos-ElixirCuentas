@@ -1,5 +1,3 @@
-chrome.browserAction.onClicked.addListener(function(tab) {
-    chrome.tabs.executeScript(tab.id, {
-        files: ['content.js', 'copyname.js', 'copynumber.js']
-    });
+chrome.runtime.onInstalled.addListener(() => {
+  console.log("WhatsApp Contact Extension Installed");
 });

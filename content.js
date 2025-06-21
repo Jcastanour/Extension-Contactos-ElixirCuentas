@@ -25,16 +25,50 @@ function abrirContactos() {
       // Si es un número de teléfono, abrir el enlace para añadir un nuevo contacto en otra pestaña
       window.open("https://contacts.google.com/new", "_blank");
     } else {
-      // Si es un nombre, abrir el enlace para buscar contactos en otra pestaña
-      window.open(
-        "https://contacts.google.com/search/" + encodeURIComponent(searchText),
-        "_blank"
-      );
+      // Si es un nombre, necesitamos encontrar el número primero
+      // 1. Hacemos clic en el nombre para abrir el panel de información
+      spanElement.click();
+
+      // 2. Esperamos un momento para que el panel cargue
+      setTimeout(function () {
+        // 3. Usamos nuestro XPath robusto para encontrar el elemento del número
+        var numberElement = document.evaluate(
+          "/html/body/div[1]/div/div/div[3]/div/div[5]/span/div/span/div/div/section/div[1]/div[2]/div[2]/span/div",
+          document,
+          null,
+          XPathResult.FIRST_ORDERED_NODE_TYPE,
+          null
+        ).singleNodeValue;
+
+        if (numberElement) {
+          var phoneNumber = numberElement.innerText.trim();
+          // 4. Abrimos Google Contacts buscando por el NÚMERO que encontramos
+          window.open(
+            "https://contacts.google.com/search/" +
+              encodeURIComponent(phoneNumber),
+            "_blank"
+          );
+
+          // Opcional: Volver a la pantalla del chat cerrando el panel de info.
+          // Para esto, necesitaríamos el selector del botón de cerrar.
+          // Por ejemplo: document.querySelector('span[data-icon="x-alt"]').click();
+        } else {
+          // Si por alguna razón no se encuentra el número, se busca por nombre como último recurso
+          console.log(
+            "No se pudo encontrar el número de teléfono, buscando por nombre como fallback."
+          );
+          window.open(
+            "https://contacts.google.com/search/" +
+              encodeURIComponent(searchText),
+            "_blank"
+          );
+        }
+      }, 500); // Damos 500ms de espera para que aparezca el panel
     }
   } else {
-    // Si no se encuentra el elemento, mostrar alerta de que no se encontró el número de teléfono
     console.log("No se encontró el número de teléfono.");
   }
 }
 
+// Ejecutar la función
 abrirContactos();

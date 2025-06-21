@@ -1,5 +1,8 @@
+var Button_X =
+  "#app > div > div.x78zum5.xdt5ytf.x5yr21d > div > div._aig-._as6h.x9f619.x1n2onr6.xyw6214.x5yr21d.x6ikm8r.x10wlt62.x17dzmu4.x1i1dayz.x2ipvbc.x1w8yi2h.xpilrb4.x1t7ytsu.x1m2ixmg.x1c4vz4f.x2lah0s.xwfak60.x5hsz1j.x17dq4o0.x10e4vud > span > div > span > div > header > div > div.x1okw0bk.x1fxk84t > div > span";
+
 function copiarNumero() {
-  // Seleccionar el elemento span que contiene el número de teléfono o nombre
+  // Seleccionar el elemento span que contiene el número de teléfono o nombre (Parte de arriba)
   var spanElement = document.querySelector(
     "#main > header > div.x78zum5.xdt5ytf.x1iyjqo2.xl56j7k.xeuugli > div > div > div > div > span"
   );
@@ -21,7 +24,7 @@ function copiarNumero() {
     setTimeout(function () {
       var newSpanElement = document.evaluate(
         //cLientes full xpath
-        "/html/body/div[1]/div/div/div[3]/div/div[5]/span/div/span/div/div/section/div[1]/div[2]/div/span/span",
+        "/html/body/div[1]/div/div/div[3]/div/div[5]/span/div/span/div/div/section/div[1]/div[2]/div[2]/span/div",
         document,
         null,
         XPathResult.FIRST_ORDERED_NODE_TYPE,
@@ -40,18 +43,14 @@ function copiarNumero() {
           document.execCommand("copy");
           document.body.removeChild(tempElement);
           //alert('Número copiado al portapapeles: ' + newSearchText);
-          document
-            .querySelector(
-              "#app > div > div.x78zum5.xdt5ytf.x5yr21d > div > div._aig-.x9f619.x1n2onr6.xyw6214.x5yr21d.x6ikm8r.x10wlt62.x17dzmu4.x1i1dayz.x2ipvbc.x1w8yi2h.xy80clv.x26u7qi.x1ux35ld > span > div > span > div > header > div > div.x1okw0bk.x1fxk84t > div > span"
-            )
-            .click();
+          document.querySelector(Button_X).click();
         } else {
           alert("No hay número que copiar");
         }
       } else {
         //Empresas js path
         var newSpanElement = document.querySelector(
-          "#app > div > div.x78zum5.xdt5ytf.x5yr21d > div > div._aig-.x9f619.x1n2onr6.xyw6214.x5yr21d.x6ikm8r.x10wlt62.x17dzmu4.x1i1dayz.x2ipvbc.x1w8yi2h.xy80clv.x26u7qi.x1ux35ld > span > div > span > div > div > section > div.x13mwh8y.x1q3qbx4.x1wg5k15.x1bnvlk4.x1n2onr6.x1c4vz4f.x2lah0s.xdl72j9.xyorhqc.x13x2ugz.x1i80of2.x6x52a7.xxpdul3.x18d9i69 > div.xkhd6sd._ajxt > div > div > span > span"
+          "#app > div > div.x78zum5.xdt5ytf.x5yr21d > div > div._aig-._as6h.x9f619.x1n2onr6.xyw6214.x5yr21d.x6ikm8r.x10wlt62.x17dzmu4.x1i1dayz.x2ipvbc.x1w8yi2h.xpilrb4.x1t7ytsu.x1m2ixmg.x1c4vz4f.x2lah0s.xwfak60.x5hsz1j.x17dq4o0.x10e4vud > span > div > span > div > div > section > div:nth-child(13) > div.x1c1uobl._ajxt > div > div > span > span"
         );
         console.log(newSpanElement);
         var newSearchText = newSpanElement.innerText.trim();
@@ -65,11 +64,7 @@ function copiarNumero() {
           document.execCommand("copy");
           document.body.removeChild(tempElement);
           //alert('Número copiado al portapapeles: ' + newSearchText);
-          document
-            .querySelector(
-              "#app > div > div.x78zum5.xdt5ytf.x5yr21d > div > div._aig-.x9f619.x1n2onr6.xyw6214.x5yr21d.x6ikm8r.x10wlt62.x17dzmu4.x1i1dayz.x2ipvbc.x1w8yi2h.xy80clv.x26u7qi.x1ux35ld > span > div > span > div > header > div > div.x1okw0bk.x1fxk84t > div > span"
-            )
-            .click();
+          document.querySelector(Button_X).click();
         } else {
           alert("No se encontró el número de teléfono.");
         }
