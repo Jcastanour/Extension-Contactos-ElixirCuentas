@@ -33,7 +33,7 @@ function abrirContactos() {
       setTimeout(function () {
         // 3. Usamos nuestro XPath robusto para encontrar el elemento del número
         var numberElement = document.evaluate(
-          "/html/body/div[1]/div/div/div[3]/div/div[5]/span/div/span/div/div/section/div[1]/div[2]/div[2]/span/div",
+          "/html/body/div[1]/div/div/div[1]/div/div[3]/div/div[5]/span/div/span/div/div/section/div[1]/div[2]/div[2]/span/div",
           document,
           null,
           XPathResult.FIRST_ORDERED_NODE_TYPE,
