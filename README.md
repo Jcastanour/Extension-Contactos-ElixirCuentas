@@ -12,7 +12,7 @@ Además, puedes activar estas funciones mediante **atajos de teclado personaliza
 - Abre el contacto directamente en [Google Contacts](https://contacts.google.com/).
 - Incluye **atajos de teclado configurables** (por defecto):
   - `Ctrl + Espacio` → Abre el popup de la extensión.
-  - `Ctrl + Shift + 1` → Copia el número automáticamente sin abrir el popup.
+  - `Ctrl + Shift + C` → Copia el número automáticamente sin abrir el popup.
   - `Ctrl + Shift + X` → Ejecuta el script `content.js` (abrir panel de contactos).
 
 ---
@@ -20,7 +20,7 @@ Además, puedes activar estas funciones mediante **atajos de teclado personaliza
 ## Estructura del proyecto
 
 ```
-sCopiar-numero-WhatsApp
+Copiar-numero-WhatsApp
 ├── background.js       # Service Worker: escucha los comandos y ejecuta los scripts
 ├── content.js          # Abre Google Contacts con el número/nombre del chat
 ├── copynumber.js       # Copia automáticamente el número del contacto
@@ -43,7 +43,7 @@ Definidos en el `manifest.json`:
     "suggested_key": { "default": "Ctrl+Space" }
   },
   "copiar-numero-auto": {
-    "suggested_key": { "default": "Ctrl+Shift+1" },
+    "suggested_key": { "default": "Ctrl+Shift+C" },
     "description": "Copiar número automáticamente en la pestaña activa"
   },
   "abrir-contactos": {
