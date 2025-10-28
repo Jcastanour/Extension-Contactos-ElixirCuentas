@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Copiar número de WhatsApp",
-  "version": "1.0",
+  "version": "1.0.2",
   "description": "Una extensión que copia automáticamente el número de teléfono de WhatsApp Web.",
   "permissions": ["activeTab", "scripting", "clipboardRead", "clipboardWrite"],
   "action": {
@@ -16,5 +16,26 @@
   "background": {
     "service_worker": "background.js"
   },
-  "host_permissions": ["*://web.whatsapp.com/*"]
+  "host_permissions": ["*://web.whatsapp.com/*"],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Space"
+      }
+    },
+    "copiar-numero-auto": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+C",
+        "mac": "Command+Shift+C"
+      },
+      "description": "Copiar número automáticamente en la pestaña activa"
+    },
+    "abrir-contactos-auto": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X",
+        "mac": "Command+Shift+X"
+      },
+      "description": "Ejecutar content.js (abrir contactos desde WhatsApp)"
+    }
+  }
 }
