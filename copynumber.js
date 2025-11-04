@@ -24,8 +24,7 @@ function copiarNumero() {
     setTimeout(function () {
       var newSpanElement = document.evaluate(
         //cLientes full xpath
-
-        "/html/body/div[1]/div/div/div[1]/div/div[3]/div/div[5]/span/div/span/div/div/section/div[1]/div[2]/div[2]/span/div",
+        "/html/body/div[1]/div/div/div[1]/div/div[3]/div/div[6]/span/div/span/div/div/section/div[1]/div[2]/div[2]/span/div",
         document,
         null,
         XPathResult.FIRST_ORDERED_NODE_TYPE,
